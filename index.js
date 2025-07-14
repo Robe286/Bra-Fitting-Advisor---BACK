@@ -13,7 +13,7 @@ dotenv.config();
 
 app.use(cors({
   origin: 'http://localhost:5173', // o el puerto donde corre tu vite frontend
-  credentials: true // Configurar así cors para que reciba credenciales desde el front
+  credentials: true // Permite que se reciban credenciales desde el front
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
