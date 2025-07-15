@@ -1,20 +1,15 @@
-// * Tabla de correspondencia busto‑tórax → talla de sujetador
-
-// Devuelve tallas con copas de la A-F
-
-  // - Copas: A, B, C, D, E, F
-  // - Tallas: 75, 80, 85, 90, 100, 105, 110, 115, 120
-
-// Para los rangos con condición “< 79”, “< 81”… se establece el límite superior con decimales (.9),
-// para que el intervalo sea [min, max] inclusivo y no solape.
-
 /*
- - Tabla de correspondencia busto‑tórax → talla de sujetador
- 
-    - underMin / underMax → contorno de tórax (bajo pecho)
-    - bustMin  / bustMax → contorno de busto (pecho)
-    - size → talla resultante
+- Tabla de correspondencia busto‑tórax → talla de sujetador
 
+  - Copas: A, B, C, D, E, F
+  - Tallas: 75, 80, 85, 90, 100, 105, 110, 115, 120
+  - underMin / underMax → contorno de tórax (bajo pecho)
+  - bustMin  / bustMax → contorno de busto (pecho)
+  - size → talla resultante
+
+  Para los rangos con condición “< 79”, “< 81”… se establece el límite superior con decimales (.9),
+  para que el intervalo sea [min, max] inclusivo y no solape.
+  
 */
 
 module.exports = [

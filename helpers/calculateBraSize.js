@@ -7,7 +7,8 @@ function isInRange (value, min, max) {
 function calculateBraSize (bust, under) {
 
   const sizeMatch = braSizeChart.find(entry =>
-    isInRange(bust, entry.bustMin, entry.bustMax) &&
+    isInRange(bust, entry.bustMin, entry.bustMax)
+    &&
     isInRange(under, entry.underMin, entry.underMax)
   );
 
