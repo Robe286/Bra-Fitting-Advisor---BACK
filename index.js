@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3001;
 const dbConection = require('./config/db.js')
 
 const productRoutes = require('./routes/productRoutes.js');
+const sizeRoutes = require('./routes/sizeRoutes.js');
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use('/api/products', productRoutes);
+app.use('/api/sizes', sizeRoutes);
 
 dbConection()
 
