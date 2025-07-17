@@ -1,4 +1,4 @@
-const braSizeChart = require('../utils/braSizeChart.js');
+const braSizeChart = require('../data/braSizeChart.js');
 
 function isInRange (value, min, max) {
   return value >= min && value <= max;
@@ -12,7 +12,7 @@ function calculateBraSize (bust, under) {
     isInRange(under, entry.underMin, entry.underMax)
   );
 
-  return sizeMatch ? sizeMatch.size : '';
+  return sizeMatch ? {size: sizeMatch.size, cup: sizeMatch.cup} : '';
 }
 
 module.exports = calculateBraSize;

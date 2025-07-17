@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const sizeController = require('../controllers/sizeController');
 
-router.post('/calculate', sizeController.getBraSize);
+router.post('/calculate-bra', sizeController.getBraSize);
 
-// --- Se podría obtener la talla para otros productos ---
+// --- Endpoints para obtener la talla de otros productos ---
 
-// router.post('/calculate', sizeController.getPijamaSize);
-// router.post('/calculate', sizeController.getSockSize);
-// router.post('/calculate') sizeController.getbikiniSize;
+// router.post('/calculate-sock', sizeController.getSockSize);
+// router.post('/calculate-pijama', sizeController.getPijamaSize);
+// router.post('/calculate-bikini', sizeController.getbikiniSize);
 
 module.exports = router;

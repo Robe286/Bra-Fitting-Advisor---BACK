@@ -1,30 +1,31 @@
 const Product = require('../models/Product.js');
+const buildProductsFilters = require('../helpers/buildProductsFilters.js');
 
 const productControllers = {
   
   async getProducts (req, res) {
     try {
     const bras = await Product.find();
-    if (!bras) res.status(404).send({message: 'Products not found'});
+    if (!bras) res.status(404).send({message: 'Productos no encontrados'});
     res.json(bras);
 
     } catch (error) {
       res
       .status(500)
-      .send({message: 'There was a problem getting the products'});
+      .send({message: 'Problema obteniendo los productos'});
     }
   },
 
   async createProduct (req, res) {
     try {
       const bra = await Product.create({...req.body});
-      if (!bra) res.status(404).send({message: 'Product not found'});
+      if (!bra) res.status(404).send({message: 'Producto no encontrado'});
       res.status(200).json(bra);
       
     } catch (error) {
       res.
       status(500)
-      send({message: 'There was a problem creating the product'});
+      send({message: 'Problema creando el producto'});
     }
   },
 
@@ -32,13 +33,13 @@ const productControllers = {
     try {
       const { id } = req.params
       const bra = await Product.findById(_id = id);
-      if (!bra) res.status(404).send({message: 'Product not found'});
+      if (!bra) res.status(404).send({message: 'Producto no encontrado'});
       res.json(bra);
 
     } catch (error) {
       res.
       status(500)
-      send({message: 'There was a problem getting the product'});
+      send({message: 'Problema obteniendo el producto'});
     }
   },
 
@@ -46,13 +47,13 @@ const productControllers = {
     try {
       const { id } = req.params
       const bra = await Product.findByIdAndUpdate(_id = id, {...req.body}, {new: true});
-      if (!bra) res.status(404).send({message: 'Product not found'});
+      if (!bra) res.status(404).send({message: 'Producto no encontrado'});
       res.status(200).json(bra);
 
     } catch (error) {
       res.
       status(500)
-      send({message: 'There was a problem updating the product'});
+      send({message: 'Problema actualizando el producto'});
     }
   },
 
@@ -60,27 +61,30 @@ const productControllers = {
     try {
       const { id } = req.params
       const bra = await Product.findByIdAndDelete(_id = id);
-      if (!bra) res.status(404).send({message: 'Product not found'});
-      res.json({message: 'Removed Product'});
+      if (!bra) res.status(404).send({message: 'Producto no encontrado'});
+      res.json({message: 'Producto eliminado'});
 
     } catch (error) {
       res.
       status(500)
-      send({message: 'There was a problem deleting the product'});
+      send({message: 'Problema eliminando el producto'});
+    }
+  },
+
+  async filterProducts (req, res) {
+    try {
+      const filters = buildProductsFilters(req.body);
+      const products = await Product.find(filters);
+      if(!products) res.status(404).send({message: 'No se han encontrado productos para estas indicaciónes'});
+      res.json({products});
+
+    } catch (error) {
+      res.
+      status(500)
+      send({message: 'Problema filtrando el producto'})
     }
   }
+
 }
 
 module.exports = productControllers;
-
-/*
-Controladores:
-  - productController.js
-      getProducts/showProducts
-      getProductById
-      createProduct
-      updateProduct
-      deleteProduct
-      filterProducts
-      calculateSize
-*/

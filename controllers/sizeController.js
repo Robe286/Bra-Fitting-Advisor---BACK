@@ -11,7 +11,7 @@ const sizeController = {
 
       const inputsAreValid = !Number.isNaN(bustNum) || !Number.isNaN(underbustNum);
       if ( !inputsAreValid ) {
-        res.status(400).json({ error: 'The values must be numbers'});
+        res.status(400).json({ error: 'Los valores deben ser números'});
       };
 
       const size = calculateBraSize(bustNum, underbustNum);
@@ -23,7 +23,7 @@ const sizeController = {
     } catch (error) {
       res.
       status(500)
-      send({message: 'There was a problem getting de bra size'})
+      send({message: 'Ocurrió un problema obteniendo la talla de sujetador'})
     }
   }
 }
