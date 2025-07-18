@@ -1,6 +1,4 @@
-const {filterByExactMatch} = require('./filters.js');
-const {filterByBrand} = require('./filters.js');
-const {filterByPrice} = require('./filters.js');
+const {filterByExactMatch, filterByBrand, filterByPrice} = require('./filters.js');
 
 function buildProductsFilters (body = {}) {
   const {

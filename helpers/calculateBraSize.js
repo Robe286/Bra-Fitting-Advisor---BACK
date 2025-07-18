@@ -11,8 +11,7 @@ function calculateBraSize (bust, under) {
     &&
     isInRange(under, entry.underMin, entry.underMax)
   );
-
-  return sizeMatch ? {size: sizeMatch.size, cup: sizeMatch.cup} : '';
+  return sizeMatch ? {size: sizeMatch.size, cup: sizeMatch.cup} : '?'
 }
 
 module.exports = calculateBraSize;

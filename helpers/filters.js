@@ -3,7 +3,6 @@
 
 // Filtra por coincidencia exacta de un campo
 
-
 function filterByExactMatch (field, value) {
   if (!value) return {};
   return { [field]: value } // Devuelve un objeto con el campo exacto y su valor
@@ -11,7 +10,6 @@ function filterByExactMatch (field, value) {
 
 
 // Filtra por una o varias marcas
-
 
 function filterByBrand (brands) {
   const isArray = Array.isArray(brands); 
@@ -23,7 +21,6 @@ function filterByBrand (brands) {
 
 
 // Filtra por rango de precios
-
 
 function filterByPrice (priceMin, priceMax) {
   const price = {};
