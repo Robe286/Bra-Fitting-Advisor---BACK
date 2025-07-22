@@ -18,7 +18,7 @@ const sizeController = {
       if ( !size ) {
         res.status(404).json({ error: 'No se encontró talla para esas medidas'});
       }
-      res.json(size);
+      res.json({size});
 
     } catch (error) {
       res.

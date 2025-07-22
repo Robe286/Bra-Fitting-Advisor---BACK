@@ -1,4 +1,4 @@
-const {filterByExactMatch, filterByBrand, filterByPrice} = require('./filters.js');
+const {filterByExactMatch, filterByInArray, filterByPrice} = require('./filters.js');
 
 function buildProductsFilters (body = {}) {
   const {
@@ -8,15 +8,18 @@ function buildProductsFilters (body = {}) {
     stuffed,
     brand,
     priceMin,
-    priceMax
-  } = body;
+    priceMax,
+    color
+  } = body.filters || {};
+  //console.log(body);
 
   return {
     ...filterByExactMatch('size', size),
     ...filterByExactMatch('cup', cup),
-    ...filterByExactMatch('category', category),
-    ...filterByExactMatch('stuffed', stuffed),
-    ...filterByBrand(brand),
+    ...filterByInArray('category', category),
+    ...filterByInArray('stuffed', stuffed),
+    ...filterByInArray('brand', brand),
+    ...filterByInArray('color', color),
     ...filterByPrice(priceMin, priceMax)
   };
 }

@@ -73,10 +73,13 @@ const productControllers = {
 
   async filterProducts (req, res) {
     try {
+      //console.log('BODY:', req.body);
       const filters = buildProductsFilters(req.body);
+      //console.log(filters);
       const products = await Product.find(filters);
       if(!products) res.status(404).send({message: 'No se han encontrado productos para estas indicaciónes'});
       res.json({products});
+      //console.log(products);
 
     } catch (error) {
       res.

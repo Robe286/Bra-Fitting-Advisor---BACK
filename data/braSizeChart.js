@@ -2,7 +2,7 @@
 - TABLA DE CORRESPONDENCIA BUSTO-TÓRAX -> TALLA DE SUJETADOR
 
   - Copas: A, B, C, D, E, F
-  - Tallas: 75, 80, 85, 90, 100, 105, 110, 115, 120
+  - Tallas: 75, 80, 85, 90, 95, 100, 105, 110, 115, 120
   - underMin / underMax → contorno de tórax (bajo pecho)
   - bustMin  / bustMax → contorno de busto (pecho)
   - size + cup → talla resultante

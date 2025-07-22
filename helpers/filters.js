@@ -8,17 +8,15 @@ function filterByExactMatch (field, value) {
   return { [field]: value } // Devuelve un objeto con el campo exacto y su valor
 }
 
+// Filtra por coincidencia si existen valores
 
-// Filtra por una o varias marcas
-
-function filterByBrand (brands) {
-  const isArray = Array.isArray(brands); 
-  if (!isArray || brands.length === 0) {
+function filterByInArray (field, values) {
+  const isArray = Array.isArray(values); 
+  if (!isArray || values.length === 0) {
    return {}; 
   }
-  return { brand: { $in: brands } }; // Devuelve un objeto que incluye las marcas escogidas
+  return { [field]: { $in: values } };
 }
-
 
 // Filtra por rango de precios
 
@@ -26,16 +24,16 @@ function filterByPrice (priceMin, priceMax) {
   const price = {};
   
   if (priceMin != null) {
-    price.$gte = priceMin; // >= precio mínimo 
+    price.$gte = priceMin; // >= precio mínimo / límite inferior
   }
   if (priceMax != null) {
-    price.$lte = priceMax; // <= precio máximo
+    price.$lte = priceMax; // <= precio máximo / límite superior
   }
   return Object.keys(price).length ? { price } : {};
 }
 
 module.exports = {
   filterByExactMatch,
-  filterByBrand,
+  filterByInArray,
   filterByPrice
 }
