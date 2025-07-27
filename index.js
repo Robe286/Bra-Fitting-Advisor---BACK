@@ -15,7 +15,7 @@ const authRoutes = require('./routes/authRoutes.js');
 dotenv.config();
 
 app.use(cors({
-  origin: 'https://brafittingadvisor.netlify.app/',
+  origin: 'https://bra-fitting-advisor-back.onrender.com',
   credentials: true // Permite que se reciban credenciales desde el front
 }));
 app.use(express.json());
