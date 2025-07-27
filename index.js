@@ -15,7 +15,7 @@ const authRoutes = require('./routes/authRoutes.js');
 dotenv.config();
 
 app.use(cors({
-  origin: 'http://localhost:5173', // o el puerto donde corre tu vite frontend
+  origin: 'https://brafittingadvisor.netlify.app',
   credentials: true // Permite que se reciban credenciales desde el front
 }));
 app.use(express.json());
