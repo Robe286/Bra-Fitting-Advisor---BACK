@@ -11,7 +11,8 @@ function calculateBraSize (bust, under) {
     &&
     isInRange(under, entry.underMin, entry.underMax)
   );
-  return sizeMatch ? `${sizeMatch.size}${sizeMatch.cup}` : 'Sin correspondencia';
+  return sizeMatch ? `Tu talla perfecta: ${sizeMatch.size}${sizeMatch.cup}`
+  : 'Sin correspondencia, no cubre un rango lógico. Revisa tus medidas e introducelas de nuevo';
 }
 
 module.exports = calculateBraSize;

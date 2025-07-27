@@ -1,6 +1,6 @@
 const {filterByExactMatch, filterByInArray, filterByPrice} = require('./filters.js');
 
-function buildProductsFilters (body = {}) {
+function buildProductsFilters ( body = {} ) {
   const {
     size,
     cup,
@@ -11,7 +11,6 @@ function buildProductsFilters (body = {}) {
     priceMax,
     color
   } = body.filters || {};
-  //console.log(body);
 
   return {
     ...filterByExactMatch('size', size),

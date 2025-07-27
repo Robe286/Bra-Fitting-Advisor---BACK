@@ -28,7 +28,8 @@ const authControllers = {
         return res.status(400).json({ error: 'Credenciales incorrectas' });
   
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      res.json({ token });
+      res
+      .json({message: 'Sesión iniciada', token });
     } catch {
       res.status(500).json({ error: 'Error al iniciar sesión' });
     }
